@@ -33,11 +33,11 @@ export function Watchlist() {
         <div className="min-h-screen bg-[#141414]">
             <Navbar />
 
-            <main className="pt-24 pb-16 px-4 md:px-12">
+            <main className="page-header pb-20 px-4 md:px-12">
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-                        <h1 className="text-3xl md:text-4xl font-bold text-white">My List</h1>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12">
+                        <h1 className="text-3xl md:text-5xl font-bold text-white section-title">My List</h1>
 
                         <div className="flex items-center gap-4">
                             {/* Sort */}
@@ -85,54 +85,53 @@ export function Watchlist() {
 
                     {/* Content */}
                     {movies.length === 0 ? (
-                        <div className="text-center py-20">
-                            <div className="text-6xl mb-4">📺</div>
-                            <h2 className="text-2xl font-bold text-white mb-2">Your list is empty</h2>
-                            <p className="text-gray-400 mb-6">
+                        <div className="empty-state py-24">
+                            <div className="text-7xl mb-6">📺</div>
+                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Your list is empty</h2>
+                            <p className="text-gray-400 mb-8 text-lg">
                                 Add movies and TV shows to your list to watch them later
                             </p>
                             <Link
                                 to="/explore"
-                                className="inline-block bg-white hover:bg-gray-200 text-black font-semibold px-6 py-3 rounded transition-colors"
+                                className="inline-block btn-gradient btn-shimmer text-white font-semibold px-8 py-4 rounded-xl transition-all hover:scale-105"
                             >
                                 Browse Content
                             </Link>
                         </div>
                     ) : viewMode === 'grid' ? (
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5 md:gap-6">
                             {sortedMovies.map(movie => (
                                 <MovieCard key={movie.id} movie={movie} size="lg" />
                             ))}
                         </div>
                     ) : (
-                        <div className="space-y-4">
+                        <div className="space-y-5">
                             {sortedMovies.map(movie => (
                                 <div
                                     key={movie.id}
-                                    className="flex gap-4 bg-gray-800/50 rounded-lg overflow-hidden group hover:bg-gray-800 transition-colors"
-                                >
+                                    className="flex gap-5 list-item-glass rounded-xl overflow-hidden group">
                                     <Link to={`/watch/${movie.id}`} className="shrink-0">
                                         <img
                                             src={movie.thumbnail}
                                             alt={movie.title}
-                                            className="w-32 h-48 object-cover"
+                                            className="w-36 h-52 object-cover"
                                         />
                                     </Link>
-                                    <div className="flex-1 py-4 pr-4">
+                                    <div className="flex-1 py-5 pr-5">
                                         <Link
                                             to={`/watch/${movie.id}`}
                                             className="text-xl font-semibold text-white hover:text-gray-300"
                                         >
                                             {movie.title}
                                         </Link>
-                                        <div className="flex items-center gap-3 mt-2 text-sm text-gray-400">
-                                            <span className="text-green-500 font-medium">{movie.rating} Rating</span>
+                                        <div className="flex items-center gap-4 mt-2.5 text-sm text-gray-400">
+                                            <span className="text-green-400 font-semibold">{movie.rating} Rating</span>
                                             <span>{movie.year}</span>
-                                            <span className="border border-gray-500 px-1">{movie.maturityRating}</span>
+                                            <span className="meta-tag">{movie.maturityRating}</span>
                                             <span>{movie.duration}</span>
                                         </div>
-                                        <p className="text-gray-400 mt-3 line-clamp-2">{movie.description}</p>
-                                        <div className="flex items-center gap-2 mt-3">
+                                        <p className="text-gray-400 mt-4 line-clamp-2">{movie.description}</p>
+                                        <div className="flex flex-wrap items-center gap-2 mt-4">
                                             {movie.genres.map(genre => (
                                                 <span
                                                     key={genre}
@@ -145,10 +144,10 @@ export function Watchlist() {
                                     </div>
                                     <button
                                         onClick={() => removeFromWatchlist(movie.id)}
-                                        className="self-center p-3 mr-4 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all"
+                                        className="self-center p-4 mr-5 text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all hover:scale-110"
                                         aria-label={`Remove ${movie.title} from list`}
                                     >
-                                        <Trash2 className="w-5 h-5" />
+                                        <Trash2 className="w-6 h-6" />
                                     </button>
                                 </div>
                             ))}

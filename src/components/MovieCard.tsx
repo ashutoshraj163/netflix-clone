@@ -28,9 +28,9 @@ export function MovieCard({ movie, index, showNumber = false, size = 'md' }: Mov
     };
 
     const sizeClasses = {
-        sm: 'w-32 h-48',
-        md: 'w-40 h-56 md:w-48 md:h-64',
-        lg: 'w-48 h-64 md:w-56 md:h-72',
+        sm: 'w-36 h-52',
+        md: 'w-44 h-60 md:w-52 md:h-72',
+        lg: 'w-52 h-72 md:w-60 md:h-80',
     };
 
     return (
@@ -51,8 +51,8 @@ export function MovieCard({ movie, index, showNumber = false, size = 'md' }: Mov
             <div
                 className={cn(
                     sizeClasses[size],
-                    'relative rounded-md overflow-hidden transition-all duration-300',
-                    isHovered && 'scale-110 z-20 shadow-[0_0_20px_rgba(229,9,20,0.6)] ring-2 ring-[#E50914]'
+                    'relative rounded-xl overflow-hidden movie-card',
+                    isHovered && 'scale-110 z-20 shadow-[0_0_30px_rgba(229,9,20,0.5)] ring-2 ring-[#E50914]/80'
                 )}
             >
                 {/* Thumbnail */}
@@ -73,11 +73,11 @@ export function MovieCard({ movie, index, showNumber = false, size = 'md' }: Mov
 
                 {/* Hover Content */}
                 {isHovered && (
-                    <div className="absolute inset-0 flex flex-col justify-end p-3 animate-fade-in">
+                    <div className="absolute inset-0 flex flex-col justify-end p-4 animate-fade-in">
                         {/* Action Buttons */}
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2.5 mb-3">
                             <button
-                                className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-colors"
+                                className="w-9 h-9 rounded-full bg-white flex items-center justify-center hover:bg-gray-200 transition-all hover:scale-110"
                                 aria-label="Play"
                             >
                                 <Play className="w-4 h-4 text-black fill-black ml-0.5" />
@@ -107,18 +107,18 @@ export function MovieCard({ movie, index, showNumber = false, size = 'md' }: Mov
                         </div>
 
                         {/* Info */}
-                        <h3 className="font-semibold text-white text-sm line-clamp-1">{movie.title}</h3>
-                        <div className="flex items-center gap-2 mt-1 text-xs">
-                            <span className="text-green-500 font-medium flex items-center gap-0.5">
+                        <h3 className="font-bold text-white text-sm line-clamp-1">{movie.title}</h3>
+                        <div className="flex items-center gap-2.5 mt-1.5 text-xs">
+                            <span className="text-green-400 font-semibold flex items-center gap-1">
                                 <Star className="w-3 h-3 fill-current" />
                                 {movie.rating}
                             </span>
-                            <span className="text-gray-400">{movie.year}</span>
-                            <span className="border border-gray-500 text-gray-400 px-1 text-[10px]">
+                            <span className="text-gray-300">{movie.year}</span>
+                            <span className="meta-tag">
                                 {movie.maturityRating}
                             </span>
                         </div>
-                        <div className="text-xs text-gray-400 mt-1">
+                        <div className="text-xs text-gray-400 mt-1.5">
                             {movie.genres.slice(0, 2).join(' • ')}
                         </div>
                     </div>

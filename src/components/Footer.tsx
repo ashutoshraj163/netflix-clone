@@ -27,10 +27,10 @@ export function Footer() {
     ];
 
     return (
-        <footer className="bg-[#141414] py-12 px-4 md:px-12 mt-12 border-t border-gray-800">
+        <footer className="glass-footer py-16 px-4 md:px-12 mt-16">
             <div className="max-w-6xl mx-auto">
                 {/* Social Links */}
-                <div className="flex gap-4 mb-6">
+                <div className="flex gap-5 mb-8">
                     {socialLinks.map(social => (
                         <a
                             key={social.label}
@@ -44,7 +44,7 @@ export function Footer() {
                 </div>
 
                 {/* Footer Links Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 gap-y-5 mb-10">
                     {footerLinks.map(link => (
                         link.href.startsWith('/') ? (
                             <Link
@@ -67,13 +67,13 @@ export function Footer() {
                 </div>
 
                 {/* Service Code */}
-                <button className="text-gray-400 text-sm border border-gray-600 px-3 py-1 hover:text-white hover:border-white transition-colors mb-6">
+                <button className="text-gray-400 text-sm border border-gray-600 px-4 py-2 rounded hover:text-white hover:border-white transition-colors mb-8">
                     Service Code
                 </button>
 
                 {/* Copyright */}
-                <p className="text-gray-500 text-xs">
-                    © 2024 Streamix, Inc. All rights reserved. This is a demo application.
+                <p className="text-gray-500 text-sm">
+                    © 2026 Streamix, Inc. All rights reserved. This is a demo application.
                 </p>
             </div>
         </footer>

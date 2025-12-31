@@ -36,8 +36,8 @@ export function ContentRow({ title, movies, showNumbers = false }: ContentRowPro
     if (!movies.length) return null;
 
     return (
-        <section className="relative py-4 group/row" aria-label={title}>
-            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mb-3 px-4 md:px-12">
+        <section className="relative content-row group/row" aria-label={title}>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-bold text-white mb-4 md:mb-5 px-4 md:px-12 section-title">
                 {title}
             </h2>
 
@@ -46,19 +46,19 @@ export function ContentRow({ title, movies, showNumbers = false }: ContentRowPro
                 <button
                     onClick={() => scroll('left')}
                     className={cn(
-                        'absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-full bg-gradient-to-r from-[#141414] to-transparent flex items-center justify-start pl-2 transition-opacity',
+                        'scroll-arrow absolute left-0 top-1/2 -translate-y-1/2 z-10 w-14 h-full bg-gradient-to-r from-[#141414] via-[#141414]/80 to-transparent flex items-center justify-start pl-3 transition-opacity',
                         showLeftArrow ? 'opacity-0 group-hover/row:opacity-100' : 'opacity-0 pointer-events-none'
                     )}
                     aria-label="Scroll left"
                 >
-                    <ChevronLeft className="w-8 h-8 text-white" />
+                    <ChevronLeft className="w-9 h-9 text-white scroll-arrow-icon" />
                 </button>
 
                 {/* Content */}
                 <div
                     ref={scrollRef}
                     onScroll={handleScroll}
-                    className="flex gap-2 md:gap-3 overflow-x-auto hide-scrollbar px-4 md:px-12"
+                    className="flex gap-3 md:gap-4 overflow-x-auto hide-scrollbar px-4 md:px-12"
                 >
                     {movies.map((movie, index) => (
                         <MovieCard
@@ -74,14 +74,15 @@ export function ContentRow({ title, movies, showNumbers = false }: ContentRowPro
                 <button
                     onClick={() => scroll('right')}
                     className={cn(
-                        'absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-full bg-gradient-to-l from-[#141414] to-transparent flex items-center justify-end pr-2 transition-opacity',
+                        'scroll-arrow absolute right-0 top-1/2 -translate-y-1/2 z-10 w-14 h-full bg-gradient-to-l from-[#141414] via-[#141414]/80 to-transparent flex items-center justify-end pr-3 transition-opacity',
                         showRightArrow ? 'opacity-0 group-hover/row:opacity-100' : 'opacity-0 pointer-events-none'
                     )}
                     aria-label="Scroll right"
                 >
-                    <ChevronRight className="w-8 h-8 text-white" />
+                    <ChevronRight className="w-9 h-9 text-white scroll-arrow-icon" />
                 </button>
             </div>
         </section>
     );
 }
+

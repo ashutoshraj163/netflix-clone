@@ -22,7 +22,7 @@ export function HeroSection({ movie }: HeroSectionProps) {
     };
 
     return (
-        <section className="relative h-[70vh] md:h-[85vh] min-h-[500px]" aria-label="Featured content">
+        <section className="relative h-[75vh] md:h-[90vh] min-h-[550px]" aria-label="Featured content">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <img
@@ -37,44 +37,44 @@ export function HeroSection({ movie }: HeroSectionProps) {
             </div>
 
             {/* Content */}
-            <div className="absolute bottom-[20%] left-0 right-0 px-4 md:px-12 max-w-4xl z-10">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 drop-shadow-2xl animate-slide-up tracking-tighter">
+            <div className="absolute bottom-[18%] md:bottom-[20%] left-0 right-0 px-4 md:px-12 max-w-4xl z-10">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 drop-shadow-2xl animate-slide-up tracking-tighter">
                     {movie.title}
                 </h1>
 
-                <div className="flex items-center gap-4 mb-8 text-base md:text-lg text-gray-200 animate-slide-up font-medium" style={{ animationDelay: '0.1s' }}>
+                <div className="flex flex-wrap items-center gap-4 md:gap-5 mb-10 text-base md:text-lg text-gray-200 animate-slide-up font-medium" style={{ animationDelay: '0.1s' }}>
                     <span className="text-[#46d369] font-bold drop-shadow-md">{movie.rating} Match</span>
                     <span>{movie.year}</span>
-                    <span className="border border-white/40 px-2 py-0.5 rounded text-sm bg-black/20 backdrop-blur-sm">{movie.maturityRating}</span>
+                    <span className="meta-tag">{movie.maturityRating}</span>
                     <span>{movie.duration}</span>
-                    <span className="bg-white/20 px-2 py-0.5 rounded text-xs font-bold ring-1 ring-white/40">HD</span>
+                    <span className="meta-tag ring-1 ring-white/30">HD</span>
                 </div>
 
-                <p className="text-gray-100 text-lg md:text-xl max-w-2xl line-clamp-3 mb-10 animate-slide-up leading-relaxed drop-shadow-md" style={{ animationDelay: '0.2s' }}>
+                <p className="text-gray-100 text-lg md:text-xl max-w-2xl line-clamp-3 mb-12 animate-slide-up leading-relaxed drop-shadow-md" style={{ animationDelay: '0.2s' }}>
                     {movie.description}
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                <div className="flex flex-wrap items-center gap-4 md:gap-5 animate-slide-up" style={{ animationDelay: '0.3s' }}>
                     <Link
                         to={`/watch/${movie.id}`}
-                        className="flex items-center gap-3 bg-white hover:bg-white/90 text-black font-bold px-8 md:px-10 py-3 md:py-4 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.3)]"
+                        className="flex items-center gap-3 bg-white hover:bg-white/90 text-black font-bold px-10 md:px-12 py-4 md:py-5 rounded-xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.3)]"
                     >
-                        <Play className="w-6 h-6 fill-black" />
+                        <Play className="w-7 h-7 fill-black" />
                         <span className="text-lg">Play</span>
                     </Link>
 
                     <button
                         onClick={handleWatchlistToggle}
-                        className="flex items-center gap-3 glass-card hover:bg-white/20 text-white font-bold px-8 md:px-10 py-3 md:py-4 rounded-xl transition-all hover:scale-105 active:scale-95 ring-1 ring-white/30"
+                        className="flex items-center gap-3 glass-card hover:bg-white/20 text-white font-bold px-10 md:px-12 py-4 md:py-5 rounded-xl transition-all hover:scale-105 active:scale-95 ring-1 ring-white/30"
                     >
                         {inWatchlist ? (
                             <>
-                                <Check className="w-6 h-6" />
+                                <Check className="w-7 h-7" />
                                 <span className="text-lg">My List</span>
                             </>
                         ) : (
                             <>
-                                <Plus className="w-6 h-6" />
+                                <Plus className="w-7 h-7" />
                                 <span className="text-lg">My List</span>
                             </>
                         )}
@@ -82,9 +82,9 @@ export function HeroSection({ movie }: HeroSectionProps) {
 
                     <Link
                         to={`/watch/${movie.id}`}
-                        className="flex items-center gap-3 glass-card hover:bg-white/20 text-white font-bold px-8 md:px-10 py-3 md:py-4 rounded-xl transition-all hover:scale-105 active:scale-95 ring-1 ring-white/30"
+                        className="flex items-center gap-3 glass-card hover:bg-white/20 text-white font-bold px-10 md:px-12 py-4 md:py-5 rounded-xl transition-all hover:scale-105 active:scale-95 ring-1 ring-white/30"
                     >
-                        <Info className="w-6 h-6" />
+                        <Info className="w-7 h-7" />
                         <span className="text-lg">More Info</span>
                     </Link>
                 </div>

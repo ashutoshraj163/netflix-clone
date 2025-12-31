@@ -50,11 +50,11 @@ export function Explore() {
                 <HeroSection movie={featuredMovie} />
 
                 {/* Genre Filter */}
-                <div className="px-4 md:px-12 py-8 flex gap-3 overflow-x-auto hide-scrollbar relative z-20 -mt-8 mb-4 mask-linear-fade">
+                <div className="px-4 md:px-12 py-10 flex gap-3 overflow-x-auto hide-scrollbar relative z-20 -mt-6 mb-2">
                     <button
                         onClick={() => setSelectedGenre(null)}
-                        className={`px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${!selectedGenre
-                            ? 'bg-[#E50914] text-white shadow-glow transform scale-105'
+                        className={`genre-pill ${!selectedGenre
+                            ? 'genre-pill-active'
                             : 'glass-card text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
                             }`}
                     >
@@ -64,8 +64,8 @@ export function Explore() {
                         <button
                             key={genre}
                             onClick={() => setSelectedGenre(genre)}
-                            className={`px-6 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all duration-300 ${selectedGenre === genre
-                                ? 'bg-[#E50914] text-white shadow-glow transform scale-105'
+                            className={`genre-pill ${selectedGenre === genre
+                                ? 'genre-pill-active'
                                 : 'glass-card text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
                                 }`}
                         >
@@ -75,7 +75,7 @@ export function Explore() {
                 </div>
 
                 {/* Content Rows */}
-                <div className="pb-12 -mt-20 relative z-10">
+                <div className="pb-16 -mt-16 relative z-10 space-y-2">
                     {continueWatching.length > 0 && (
                         <ContentRow
                             title="Continue Watching"

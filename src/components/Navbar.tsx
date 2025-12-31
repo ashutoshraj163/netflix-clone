@@ -41,7 +41,7 @@ export function Navbar() {
                 isScrolled ? 'glass shadow-2xl border-b border-white/5' : 'bg-gradient-to-b from-black/90 via-black/50 to-transparent'
             )}
         >
-            <nav className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-4 flex items-center justify-between">
+            <nav className="max-w-[1920px] mx-auto px-4 md:px-8 lg:px-12 py-5 flex items-center justify-between">
                 {/* Logo */}
                 <Link
                     to={user ? '/explore' : '/'}
@@ -56,7 +56,7 @@ export function Navbar() {
 
                 {/* Desktop Navigation */}
                 {user && (
-                    <div className="hidden md:flex items-center gap-8 ml-12">
+                    <div className="hidden md:flex items-center gap-10 ml-12">
                         {navLinks.map(link => (
                             <Link
                                 key={link.path}
@@ -79,7 +79,7 @@ export function Navbar() {
                 )}
 
                 {/* Right Side Actions */}
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-7">
                     {user ? (
                         <>
                             {/* Search */}
@@ -149,30 +149,30 @@ export function Navbar() {
                                 </button>
 
                                 {isProfileOpen && (
-                                    <div className="absolute right-0 mt-4 w-56 glass-card rounded-xl py-2 animate-slide-up origin-top-right ring-1 ring-white/10">
-                                        <div className="px-4 py-3 border-b border-white/10">
+                                    <div className="absolute right-0 mt-5 w-60 glass-card rounded-xl py-3 animate-slide-up origin-top-right ring-1 ring-white/10 shadow-2xl">
+                                        <div className="px-5 py-4 border-b border-white/10">
                                             <p className="text-sm text-white font-semibold truncate">{profile?.name || 'User'}</p>
-                                            <p className="text-xs text-gray-400 truncate">{user.email}</p>
+                                            <p className="text-xs text-gray-400 truncate mt-0.5">{user.email}</p>
                                         </div>
                                         <div className="py-2">
                                             <Link
                                                 to="/profile"
-                                                className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+                                                className="block px-5 py-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
                                                 onClick={() => setIsProfileOpen(false)}
                                             >
                                                 Manage Profiles
                                             </Link>
                                             <Link
                                                 to="/settings"
-                                                className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+                                                className="block px-5 py-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
                                                 onClick={() => setIsProfileOpen(false)}
                                             >
                                                 Account & Settings
                                             </Link>
-                                            <div className="border-t border-white/10 my-1" />
+                                            <div className="border-t border-white/10 my-2" />
                                             <button
                                                 onClick={handleLogout}
-                                                className="w-full text-left px-4 py-2.5 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+                                                className="w-full text-left px-5 py-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
                                             >
                                                 Sign Out
                                             </button>
